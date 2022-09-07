@@ -7,10 +7,9 @@ public class Main {
         numbers.insert(20);
         numbers.insert(30);
 
-        numbers.print();
-        System.out.println("REMOVING");
-        numbers.removeAt(2);
         
-        numbers.print();
+        System.out.println(numbers.indexOf(200));
+         
+        
     }
 }

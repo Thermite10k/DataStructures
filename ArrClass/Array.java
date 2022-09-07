@@ -39,6 +39,15 @@ public class Array {
         }
         count--;
     }
+    
+    public int indexOf(int item){
+        for (int i =0; i<count;i++){
+            if(items[i] == item){
+                return i;
+            }
+        }
+        return -1;
+    }
 
     public void print(){
         
