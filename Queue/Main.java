@@ -5,6 +5,8 @@ import java.util.Arrays;
 import java.util.Queue;
 import java.util.Stack;
 
+
+
 public class Main {
     public static void main(String[] args){
         // Queue<Integer> queue = new ArrayDeque<>();
@@ -16,21 +18,29 @@ public class Main {
 
         ArrayQueue arrQueue = new ArrayQueue(3);
         StackQueue  stackQueue = new StackQueue();
-        
-        stackQueue.enqueue(10);
-        stackQueue.enqueue(20);
-        stackQueue.enqueue(30);
+        PriorityQueue priorityQueue = new PriorityQueue(5);
+
+        priorityQueue.add(2);
+        priorityQueue.add(9);
+        priorityQueue.add(1);
+        priorityQueue.add(0);
+        priorityQueue.add(5);
+
+
 
         
-        stackQueue.show();
-        stackQueue.dequeue();
-        stackQueue.show();
+        System.out.println(priorityQueue.show());
+        priorityQueue.remove();
+        System.out.println(priorityQueue.show());
+        priorityQueue.remove();
+        System.out.println(priorityQueue.show());priorityQueue.remove();
+        System.out.println(priorityQueue.show());priorityQueue.remove();
+        System.out.println(priorityQueue.show());priorityQueue.remove();
+        System.out.println(priorityQueue.show());
+        System.out.println(priorityQueue.isEmpty());
 
-        stackQueue.dequeue();
-        stackQueue.show();
-
-        stackQueue.dequeue();
-        stackQueue.show();
+        
+        
 
 
        

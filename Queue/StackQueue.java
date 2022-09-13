@@ -2,7 +2,7 @@ package Queue;
 
 
 import java.util.Stack;
-
+// the peek,end and first methods are bugged.
 public class StackQueue{
     Stack<Integer> firstStack = new Stack<>();
     Stack<Integer> secondStack = new Stack<>();
