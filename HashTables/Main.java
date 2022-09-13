@@ -6,8 +6,21 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args){
-        
-        System.out.println(FirstNoneRepeatedChar("a green apple"));
+        // FirstRepeated analyzer = new FirstRepeated();
+        // System.out.println(FirstNoneRepeatedChar("a green apple"));
+        // System.out.println(firstTimeNoRep("a"));
+        // System.out.println(analyzer.getFirsetRepeted("a green"));
+        // System.out.println(analyzer.getFirsCharacterSE("a green"));
+
+        HashFromScratch hashTable = new HashFromScratch();
+        hashTable.put(4, "Value");
+        hashTable.put(9, "Value2");
+        hashTable.put(4, "Value3");
+        System.out.println(hashTable.get(4));
+        System.out.println(hashTable.get(9));
+        hashTable.remove(12);
+        System.out.println(hashTable.get(4));
+
     }
 
     public static Character FirstNoneRepeatedChar(String input){
@@ -31,8 +44,7 @@ public class Main {
             i++;
         }
 
-        System.out.println(firstIndex);
-        System.out.println(lastIndex);
+        
         Map<Integer, Character> single = new HashMap<>();
         
         for(var first:firstIndex.entrySet()){
@@ -48,6 +60,33 @@ public class Main {
         }
 
 
-        return 'n';
+        return Character.MIN_VALUE;
+
+    }
+    public static Character firstTimeNoRep(String input){
+        Map<Character, Integer> firstIndex = new HashMap<>();
+        for(var ch: input.toCharArray() ){
+            // if(!(firstIndex.containsKey(ch))){
+            //     firstIndex.put(ch,1);
+            // }else{
+            //     Integer count = firstIndex.get(ch);
+            //     firstIndex.put(ch,count++);
+
+                
+            // }
+            var count = firstIndex.containsKey(ch) ? firstIndex.get(ch) : 0;
+            firstIndex.put(ch, count +1);
+        }
+
+        
+
+        for(Character single:input.toCharArray()){
+            Integer count = firstIndex.get(single);
+            if(count ==1){
+                return single;
+            }
+        }
+
+        return Character.MIN_VALUE;
     }
 }
