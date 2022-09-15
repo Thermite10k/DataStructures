@@ -12,14 +12,7 @@ public class Main {
         tree.add(8);
         tree.add(10);
 
-        Tree tree2 = new Tree();
-        tree2.add(7);
-        tree2.add(4);
-        tree2.add(9);
-        tree2.add(1);
-        tree2.add(6);
-        tree2.add(87);
-        tree2.add(10);
+       
         // tree.traversePreOrder();
         // System.out.println("++++++++++++++++++++");
         // tree.traverseInOrder();
@@ -27,7 +20,13 @@ public class Main {
 
         // tree.traversePostorder();
 
-        System.out.println(tree.areEqual(tree2));
+        
+        var list = tree.getNodeAtDistance(1);
+        for(int value:list){
+            System.out.println(value);
+        }
+
+        tree.traverseLevelOrder();
         
     }
     

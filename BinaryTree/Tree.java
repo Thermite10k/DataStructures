@@ -1,6 +1,6 @@
 package BinaryTree;
 
-
+import java.util.ArrayList;
 
 public class Tree {
     private class Node{
@@ -180,4 +180,60 @@ public class Tree {
         }
         return areEqual(root, tree2.root);
     }
+
+    public boolean isValidBinarySerchTree(){
+        return isValidBinarySerchTree(root,Integer.MIN_VALUE,Integer.MAX_VALUE);
+
+    }
+    private boolean isValidBinarySerchTree(Node root,int min,int max){
+        if(root == null){
+            return true;
+        }
+        if(root.value < min || root.value > max){
+            return false;
+        }
+
+        return 
+        isValidBinarySerchTree(root.leftChild,min,root.value-1) 
+        &&
+        isValidBinarySerchTree(root.rightChild,root.value+1,max);
+        
+
+    }
+
+    public ArrayList<Integer> getNodeAtDistance(int distance){
+        ArrayList<Integer> list = new ArrayList<Integer>();
+        getNodeAtDistance(distance,root,list);
+        return list;
+    }
+
+    private void getNodeAtDistance(int distance, Node root,ArrayList<Integer> list){
+        if(root == null){
+            return;
+        }
+        if(distance == 0){
+            list.add(root.value);
+            
+            return;
+        }
+        
+        
+        getNodeAtDistance(distance - 1, root.leftChild,list);
+        getNodeAtDistance(distance - 1, root.rightChild,list);
+        
+        
+
+    
+    }
+
+    public void traverseLevelOrder(){
+        for(int i =0; i<= height(); i++){
+
+            
+            for(int value: getNodeAtDistance(i)){
+                System.out.println(value);
+            }
+        }
+    }
+
 }
