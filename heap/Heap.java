@@ -96,6 +96,7 @@ public class Heap {
             array[0] = array[items-1];
             array[items-1] = 0;
             items--;
+            isValid();
 
             return toBeReturned;
         }
@@ -112,7 +113,7 @@ public class Heap {
     }
 
     private Heap addToArrya(int[] input){
-        Heap heap = new Heap(input.length);
+        Heap heap = new Heap(input.length+1);
         for(int i = 0; i<input.length;i++){
             heap.add(input[i]);
         }
@@ -131,4 +132,19 @@ public class Heap {
 
         return array;
     }
+
+    public int[] sortDescending(int[] input){
+        Heap heap  = addToArrya(input);
+        int[] array = new int[input.length];
+        
+        while(!(heap.isEmpty())){
+            for(int i=input.length -1;i>=0;i--){
+                array[i] = heap.remove();
+            }
+        }
+
+        return array;
+    }
+
+
 }

@@ -14,17 +14,9 @@ public class Main {
         heap.add(1);
         heap.add(24);
         heap.show();
-        heap.remove(24);
-        heap.show();
-        heap.remove(15);
-        heap.remove(10);
-        heap.remove(3);
-        heap.remove(8);
-        heap.remove(12);
-        heap.remove();
-        heap.remove();
         heap.remove();
         heap.show();
+        
 
 
     }
