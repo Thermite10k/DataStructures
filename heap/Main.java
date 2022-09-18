@@ -21,9 +21,9 @@ public class Main {
         heap.remove(3);
         heap.remove(8);
         heap.remove(12);
-        heap.remove(9);
-        heap.remove(4);
-        heap.remove(1);
+        heap.remove();
+        heap.remove();
+        heap.remove();
         heap.show();
 
 

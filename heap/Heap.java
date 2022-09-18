@@ -86,7 +86,25 @@ public class Heap {
                 }
             }
             isValid();
+            
         }
+    }
+
+    public int remove(){
+        if(items > 0){
+            int toBeReturned = array[0];
+            array[0] = array[items-1];
+            array[items-1] = 0;
+            items--;
+
+            return toBeReturned;
+        }
+        throw new IllegalStateException();
+
+    }
+
+    public boolean isEmpty(){
+        return items == 0;
     }
 
     public void show(){
