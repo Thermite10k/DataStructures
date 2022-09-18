@@ -6,10 +6,12 @@ public class Main {
     public static void main(String[] args){
         Heap heap = new Heap(9);
 
-        int[] array ={2,5,1,3,7,9,25,489,354,21,20};
+        int[] array ={5,3,8,4,1,2};
 
         System.out.println(Arrays.toString(heap.sortAscendig(array)));
         System.out.println(Arrays.toString(heap.sortDescending(array)));
+        Heapify.heapify(array);
+        System.out.println(Arrays.toString(array));
         
 
 
