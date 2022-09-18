@@ -110,4 +110,25 @@ public class Heap {
     public void show(){
         System.out.println(Arrays.toString(array));
     }
+
+    private Heap addToArrya(int[] input){
+        Heap heap = new Heap(input.length);
+        for(int i = 0; i<input.length;i++){
+            heap.add(input[i]);
+        }
+        return heap;
+    }
+
+    public int[] sortAscendig(int[] input){
+        Heap heap  = addToArrya(input);
+        int[] array = new int[input.length];
+        
+        while(!(heap.isEmpty())){
+            for(int i=0;i<input.length;i++){
+                array[i] = heap.remove();
+            }
+        }
+
+        return array;
+    }
 }
