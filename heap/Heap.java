@@ -32,7 +32,7 @@ public class Heap {
         int errorIndex = -1;
         for( i =0; 2*i<items-1; i++){
             if(array[(2*i )+1] > array[i] || array[(2*i) + 2] > array[i]){
-                System.out.println("NOT VALID" +" at index " +(i));
+                
                 errorIndex = i;
                 
                 int rightChildIndex = (2*i) + 2;
@@ -56,7 +56,7 @@ public class Heap {
             }
         }
         //check to see if new bubbled value is smaller than parent
-        System.out.println(errorIndex);
+        
         if(errorIndex != -1 && errorIndex > 0){
 
             if(errorIndex%2 ==0){

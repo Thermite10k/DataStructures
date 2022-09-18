@@ -1,21 +1,15 @@
 package heap;
 
+import java.util.Arrays;
+
 public class Main {
     public static void main(String[] args){
         Heap heap = new Heap(9);
 
-        heap.add(15);
-        heap.add(10);
-        heap.add(3);
-        heap.add(8);
-        heap.add(12);
-        heap.add(9);
-        heap.add(4);
-        heap.add(1);
-        heap.add(24);
-        heap.show();
-        heap.remove();
-        heap.show();
+        int[] array ={2,5,1,3,7,9,25,489,354,21,20};
+
+        System.out.println(Arrays.toString(heap.sortAscendig(array)));
+        System.out.println(Arrays.toString(heap.sortDescending(array)));
         
 
 
