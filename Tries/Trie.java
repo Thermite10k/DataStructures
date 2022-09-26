@@ -1,5 +1,6 @@
 package Tries;
 
+
 public class Trie {
     private class Node{
         private Character value;
@@ -8,6 +9,12 @@ public class Trie {
          public Node(Character ch){
             this.value = ch;
          }
+
+
+        @Override
+        public String toString(){
+            return "value " + value;
+        }
     }
 
     private Node root = new Node(null);
@@ -26,13 +33,9 @@ public class Trie {
             }
             current = current.children[index];
             len--;
-            if(len == 0){
-                current.isEndOfWord = true;
-                return;
-            }
-            
 
             
         }
+        current.isEndOfWord = true;
     }
 }
