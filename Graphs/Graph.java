@@ -1,10 +1,12 @@
 package Graphs;
 
-import java.lang.annotation.Target;
+
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 public class Graph {
     private class Node{
@@ -71,5 +73,29 @@ public class Graph {
             adjacencyList.get(fromNode).remove(toNode);
         }
         return; 
+    }
+
+    public void depthFirstTraverse(String root){
+        Node node = nodes.get(root);
+        if(node == null){
+            return;
+        }
+        
+        depthFirstTraverse(node, new HashSet<>());
+        
+
+    }
+
+    private void depthFirstTraverse(Node root, Set<Node> visited){
+
+        System.out.println(root.label);
+        visited.add(root);
+        for(Node node: adjacencyList.get(root)){
+            if(!visited.contains(node)){
+  
+                depthFirstTraverse(node,visited);
+            }
+        }
+
     }
 }
