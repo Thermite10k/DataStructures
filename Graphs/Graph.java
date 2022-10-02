@@ -7,6 +7,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
+import java.util.Stack;
 
 public class Graph {
     private class Node{
@@ -88,7 +89,7 @@ public class Graph {
 
     private void depthFirstTraverse(Node root, Set<Node> visited){
 
-        System.out.println(root.label);
+        System.out.println(root);
         visited.add(root);
         for(Node node: adjacencyList.get(root)){
             if(!visited.contains(node)){
@@ -97,5 +98,49 @@ public class Graph {
             }
         }
 
+    }
+
+    public void bredthFirstTraverse(String root){
+        Node node = nodes.get(root);
+        if(node == null){
+            return;
+        }
+        bredthFirstTraverse(node, new HashSet<>());
+    }
+
+    private void bredthFirstTraverse(Node root, Set<Node> visited){
+        visited.add(root);
+
+        for(Node node: adjacencyList.get(root)){
+            if(!visited.contains(node)){
+                bredthFirstTraverse(node, visited);
+            }
+        }
+        System.out.println(root.label);
+    }
+
+    public void depthFirstTraverseIterative(String root){
+        Node rootNode = nodes.get(root);
+        if(rootNode == null){
+            return;
+        }
+        Set<Node> visited = new HashSet<>();
+        Stack<Node> stack = new Stack<>();
+        
+        stack.push(rootNode);
+        while(!stack.isEmpty()){
+            Node current = stack.pop();
+            if(visited.contains(current)){
+                continue;
+            }
+
+            System.out.println(current.label);
+            visited.add(current);
+
+            for(Node neighbour : adjacencyList.get(current)){
+                if(!visited.contains(neighbour));
+                stack.push(neighbour);
+            }
+        }
     }
 }
