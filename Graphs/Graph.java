@@ -1,11 +1,13 @@
 package Graphs;
 
 
+import java.util.ArrayDeque;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
 
@@ -140,6 +142,34 @@ public class Graph {
             for(Node neighbour : adjacencyList.get(current)){
                 if(!visited.contains(neighbour));
                 stack.push(neighbour);
+            }
+        }
+    }
+
+    public void bredthFirstTraverseIterative(String root){
+        Node rootNode =  nodes.get(root);
+        
+        if(rootNode == null){
+            return;
+        }
+        Set<Node> visited = new HashSet<>();
+        Queue<Node> queue = new ArrayDeque<>();
+    
+
+        queue.add(rootNode);
+
+        while(!queue.isEmpty()){
+            Node current = queue.remove();
+            if(visited.contains(current)){
+                continue;
+            }
+            System.out.println(current);
+            visited.add(current);
+            for(Node edges : adjacencyList.get(current)){
+                if(!visited.contains(edges)){
+
+                    queue.add(edges);
+                }
             }
         }
     }

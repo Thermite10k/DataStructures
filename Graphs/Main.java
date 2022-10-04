@@ -13,7 +13,7 @@ public class Main {
         graph.addEdge("A", "C");
        
       
-        graph.depthFirstTraverseIterative("A");
+        graph.bredthFirstTraverseIterative("A");
        
 
 
