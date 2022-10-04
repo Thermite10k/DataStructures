@@ -5,15 +5,16 @@ public class Main {
         Graph graph = new Graph();
         graph.addNode("A");
         graph.addNode("B");
-        graph.addNode("C");
-        graph.addNode("D");
-        graph.addEdge("A", "B");
-        graph.addEdge("B", "D");
-        graph.addEdge("D", "C");
-        graph.addEdge("A", "C");
+        graph.addNode("X");
+        graph.addNode("P");
+        graph.addEdge("X", "B");
+        graph.addEdge("X", "A");
+        graph.addEdge("B", "P");
+        graph.addEdge("A", "P");
+
        
       
-        graph.bredthFirstTraverseIterative("A");
+        System.out.println(graph.hasCycle());
        
 
 

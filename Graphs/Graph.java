@@ -11,6 +11,8 @@ import java.util.Queue;
 import java.util.Set;
 import java.util.Stack;
 
+import Queue.StackQueue;
+
 public class Graph {
     private class Node{
         private String label;
@@ -172,5 +174,92 @@ public class Graph {
                 }
             }
         }
+    }
+
+    public List<String> topologiclSort(){
+        
+        Set<Node> visited = new HashSet<>();
+        Stack<Node> stack = new Stack<>();
+
+
+
+        for(Node node : nodes.values()){
+
+            topologiclSort(node, visited,stack);
+        }
+
+
+        List<String> sorted = new ArrayList<>();
+        while(!stack.isEmpty()){
+            sorted.add(stack.pop().label);
+        }
+        return sorted;
+
+    }
+
+    private void topologiclSort(Node node, Set<Node> visited,Stack<Node> stack){
+        
+        if(visited.contains(node)){
+            return;
+        }
+        
+        visited.add(node);
+
+
+        for(Node children : adjacencyList.get(node)){
+            if(!visited.contains(children)){
+                
+                topologiclSort(children, visited,stack);
+        
+
+            }
+        }
+        stack.push(node);
+      
+
+    }
+
+    public boolean hasCycle(){
+        Set<Node> all = new HashSet<>();
+        all.addAll(nodes.values());
+        Set<Node> visiting = new HashSet<>();
+        Set<Node> visited = new HashSet<>();
+
+        while(!all.isEmpty()){
+            //var current = all.toArray(new Node[0])[0];
+            var current = all.iterator().next();
+            if(hasCycle(current,all,visiting,visited)){
+                return true;
+            }
+        }
+        return false;
+
+       
+        
+    }
+
+    private boolean hasCycle(Node node, Set<Node> all,Set<Node> visiting,Set<Node> visited){
+        all.remove(node);
+        visiting.add(node);
+
+
+        for(Node child : adjacencyList.get(node)){
+            if(visited.contains(child)){
+                continue;
+            }
+
+            if(visiting.contains(child)){
+                return true;
+            }
+
+           
+           if(hasCycle(child, all, visiting, visited)){
+            return true;
+           }
+        }
+
+        visiting.remove(node);
+        visited.add(node);
+        return false;
     }
 }
