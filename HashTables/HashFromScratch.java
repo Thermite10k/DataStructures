@@ -2,8 +2,7 @@ package HashTables;
 
 import java.util.LinkedList;
 
-import javax.naming.LinkLoopException;
-import javax.sound.sampled.LineListener;
+
 
 public class HashFromScratch {
     //put(k, v)
