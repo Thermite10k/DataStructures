@@ -10,6 +10,10 @@ public class Main {
         System.out.println(smp.reverseStr2(sampleStr));
         System.out.println(smp.reverseStr3(sampleStr));
         System.out.println(smp.reverseCharacters(sampleStr));
+        String st1 = "ABC";
+        String st2 = "BCD";
+        System.out.println(smp.areRotations(st1, st2));
+
 
         
         

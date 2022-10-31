@@ -70,4 +70,32 @@ public  class Manipulator {
         Collections.reverse(Arrays.asList(words));
         return String.join(" ", words);
     }
+
+    
+
+    public Boolean areRotations(String input1, String input2){
+    char[] arr1 = input1.toCharArray();
+    char[] arr2 = input2.toCharArray();
+
+  
+    int maxIndex = arr1.length;
+    char firstArrEl = arr1[0];
+    int shiftAmount = 0;
+    for(char ch : arr2){
+
+        if(ch == firstArrEl){
+            break;
+        }
+        shiftAmount++;
+    }
+
+    
+    for(int i = 0; i< maxIndex ; i++){
+        int SHAMT  = ( i+shiftAmount) % maxIndex;
+        if(arr1[i] != arr2[SHAMT]){
+            return false;
+        }
+    }
+    return true;
+    }
 }
